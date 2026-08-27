@@ -1,0 +1,201 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  padding-top: 90px;
+}
+
+/* Layout 2 Kolom Proporsional */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 60px;
+}
+
+.hero-content {
+  flex: 1.1;
+}
+
+.subtitle {
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.typing-text {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 24px;
+  min-height: 2.6rem;
+}
+
+.cursor {
+  color: var(--accent-cyan);
+  animation: blink 0.7s infinite;
+}
+
+.description {
+  max-width: 600px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.7);
+}
+
+.btn-secondary {
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: var(--text-primary);
+  background: rgba(11, 15, 25, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(168, 85, 247, 0.15);
+  border-color: var(--accent-cyan);
+  transform: translateY(-3px);
+}
+
+/* ========================================= */
+/*   DESAIN FOTO PROFIL TRANSPARAN (NO BG)   */
+/* ========================================= */
+
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0.9;
+}
+
+/* Cahaya Neon / Ambient Glow di Belakang Tubuh */
+.image-glow {
+  position: absolute;
+  width: 380px;
+  height: 480px;
+  background: radial-gradient(
+    circle, 
+    rgba(168, 85, 247, 0.35) 0%, 
+    rgba(56, 189, 248, 0.2) 50%, 
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Style Foto Tanpa Background + Efek Pudar di Bawah */
+.hero-profile-img {
+  position: relative;
+  width: 400px;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  z-index: 1;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  
+  /* Efek Bayangan Neon di Belakang Badan */
+  filter: drop-shadow(0 10px 25px rgba(168, 85, 247, 0.35));
+  
+  /* Gradasi Transparan (Fade) di Bawah Foto */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+  
+  transition: all 0.4s ease;
+}
+
+/* Efek Hover */
+.hero-profile-img:hover {
+  transform: translateY(-6px) scale(1.02);
+  filter: drop-shadow(0 15px 35px rgba(56, 189, 248, 0.5));
+}
+
+/* Responsif Layar Laptop Kecil & HP */
+@media (max-width: 1200px) {
+  .hero-profile-img {
+    width: 330px;
+    max-height: 440px;
+  }
+  .image-glow {
+    width: 320px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .typing-text {
+    font-size: 1.6rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-profile-img {
+    width: 260px;
+    max-height: 360px;
+  }
+
+  .image-glow {
+    width: 260px;
+    height: 320px;
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

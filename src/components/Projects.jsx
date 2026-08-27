@@ -1,0 +1,113 @@
+import React from 'react';
+import './Projects.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+
+// Import semua foto langsung dari folder src/assets/
+import meongImg from '../assets/meong.jpg';
+import dealanImg from '../assets/dealan.jpg';
+import iotImg from '../assets/iot.jpg';
+import kebabImg from '../assets/kebab.jpg';
+import mlImg from '../assets/ml.jpg';
+
+export default function Projects() {
+  const projectsData = [
+    {
+      id: 1,
+      title: "Meong.ID Platform",
+      category: "Full-Stack Web Development",
+      description: "Platform ekosistem pecinta kucing terfragmentasi yang menyediakan fitur adopsi terpusat, lapor kucing hilang berbasis geolokalasi, peta direktori RS/shelter, serta forum komunitas.",
+      image: meongImg,
+      techStack: ["Vue.js", "Fastify", "Prisma ORM", "MySQL", "UI/UX"],
+      githubUrl: "https://github.com/nihaaprill/tubes_web_keren.git",
+      demoUrl: "https://tubes-web-keren.vercel.app/"
+    },
+    {
+      id: 2,
+      title: "Dealan Data Warehouse & ETL",
+      category: "Data Engineering",
+      description: "Perancangan arsitektur Data Warehouse Star Schema (1 Tabel Fakta & 8 Dimensi) serta alur ETL bertingkat untuk sistem analisis operasional dan finansial aplikasi transportasi Dealan.",
+      image: dealanImg,
+      techStack: ["SQL", "Star Schema", "ETL", "OLAP", "Data Warehouse"],
+      githubUrl: "https://github.com/nihaaprill/Dealan.git",
+      demoUrl: "https://dealan-app.vercel.app/"
+    },
+    {
+      id: 3,
+      title: "Smart Secure Desk (IoT)",
+      category: "Internet of Things",
+      description: "Sistem keamanan meja otomatis menggunakan metode sliding window untuk deteksi pencurian (ESP32 & Ball Switch) dipadu Smart Lighting (LDR PWM) dengan monitoring real-time via MQTT & Streamlit.",
+      image: iotImg,
+      techStack: ["ESP32", "MQTT Mosquitto", "Flask Gateway", "Streamlit", "IoT"],
+      githubUrl: "https://github.com/nihaaprill/TubesIoT.git",
+      demoUrl: null
+    },
+    {
+      id: 4,
+      title: "Grand Kebab Hejo Digital Catalog",
+      category: "Software Engineering",
+      description: "Pengembangan website company profile dan katalog digital interaktif UMKM F&B lengkap dengan fitur simulasi keuntungan franchise, pencarian lokasi cabang, dan integrasi WhatsApp CS.",
+      image: kebabImg,
+      techStack: ["Vue.js", "Node.js", "PostgreSQL", "Prisma ORM", "REST API"],
+      githubUrl: "https://github.com/nihaaprill/Kebab-Hejo.git",
+      demoUrl: "https://frontend-phi-blond-37.vercel.app/"
+    },
+    {
+      id: 5,
+      title: "Student Efficiency Classification",
+      category: "Machine Learning",
+      description: "Pemodelan dan klasifikasi efisiensi belajar mahasiswa berdasarkan variabel akademik dan kecemasan psikologis menggunakan algoritma Naive Bayes dengan validasi 100 iterasi di R.",
+      image: mlImg,
+      techStack: ["R", "Naive Bayes", "Data Analytics", "Machine Learning"],
+      githubUrl: "https://github.com/nihaaprill/Tubes-Machine-Learning.git",
+      demoUrl: null
+    }
+  ];
+
+  return (
+    <section id="projects" className="projects-section">
+      <h2 className="section-title" data-aos="fade-right">
+        <span>//</span> Featured Projects
+      </h2>
+      
+      <div className="projects-grid">
+        {projectsData.map((project) => (
+          <div 
+            key={project.id} 
+            className="project-card"
+            data-aos="zoom-in-up"
+            data-aos-delay={(project.id % 3) * 100}
+          >
+            <div className="card-image">
+              <img src={project.image} alt={project.title} />
+            </div>
+            <div className="card-content">
+              <span className="tech-tag">{project.category}</span>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              
+              <div className="tech-stack">
+                {project.techStack.map((tech, index) => (
+                  <span key={index}>{tech}</span>
+                ))}
+              </div>
+
+              <div className="card-links">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-icon">
+                  <FontAwesomeIcon icon={faGithub} /> Repository
+                </a>
+                
+                {project.demoUrl && (
+                  <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn-icon outline">
+                    <FontAwesomeIcon icon={faExternalLinkAlt} /> Live Demo
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,152 @@
+.about-section {
+  padding: 00px 8%;
+}
+
+.about-container {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.about-text {
+  flex: 1.2;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.about-text .highlight-text {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.about-text .highlight-text strong {
+  color: var(--accent-cyan);
+}
+
+/* Stat Mini Cards */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.stat-card {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+  color: var(--accent-cyan);
+  margin-bottom: 10px;
+}
+
+.stat-card h4 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.stat-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* Skills Column */
+.skills-wrapper {
+  flex: 1;
+  background: rgba(11, 15, 25, 0.6);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+}
+
+.skills-wrapper h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 24px;
+  font-family: var(--font-mono);
+}
+
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-category h4 {
+  font-size: 0.95rem;
+  color: var(--accent-cyan);
+  margin-bottom: 10px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-family: var(--font-mono);
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+}
+
+@media (max-width: 992px) {
+  .about-container {
+    flex-direction: column;
+  }
+}
+
+/* Memperbesar Judul Section // About Me */
+.about-section .section-title {
+  font-size: 3.5rem !important;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+
+/* Memperbesar Simbol // di Depan Judul */
+.about-section .section-title span {
+  font-size: 3.5rem !important;
+  margin-right: 15px;
+  color: var(--accent-color);
+}
+
+/* Penyesuaian Ukuran di Layar HP */
+@media (max-width: 768px) {
+  .about-section .section-title,
+  .about-section .section-title span {
+    font-size: 2.2rem !important;
+  }
+}
