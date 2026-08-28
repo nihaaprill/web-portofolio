@@ -4,15 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-// Import semua foto langsung dari folder src/assets/
+// Import foto (mlImg sudah dihapus karena tidak dipakai lagi)
 import meongImg from '../assets/meong.jpg';
 import dealanImg from '../assets/dealan.jpg';
 import iotImg from '../assets/iot.jpg';
 import kebabImg from '../assets/kebab.jpg';
-import mlImg from '../assets/ml.jpg';
 
 export default function Projects() {
-  // State untuk menyimpan data proyek yang sedang diklik/diperbesar
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projectsData = [
@@ -55,16 +53,6 @@ export default function Projects() {
       techStack: ["Vue.js", "Node.js", "PostgreSQL", "Prisma ORM", "REST API"],
       githubUrl: "https://github.com/nihaaprill/Kebab-Hejo.git",
       demoUrl: "https://frontend-phi-blond-37.vercel.app/"
-    },
-    {
-      id: 5,
-      title: "Student Efficiency Classification",
-      category: "Machine Learning",
-      description: "Pemodelan dan klasifikasi efisiensi belajar mahasiswa berdasarkan variabel akademik dan kecemasan psikologis menggunakan algoritma Naive Bayes dengan validasi 100 iterasi di R.",
-      image: mlImg,
-      techStack: ["R", "Naive Bayes", "Data Analytics", "Machine Learning"],
-      githubUrl: "https://github.com/nihaaprill/Tubes-Machine-Learning.git",
-      demoUrl: null
     }
   ];
 
@@ -82,11 +70,12 @@ export default function Projects() {
             className="project-card"
             data-aos="zoom-in-up"
             data-aos-delay={(project.id % 3) * 100}
-            onClick={() => setSelectedProject(project)} // KLIK KARTU UNTUK MEMBUKA MODAL
+            onClick={() => setSelectedProject(project)}
           >
             <div className="card-image">
               <img src={project.image} alt={project.title} />
               <div className="card-overlay">
+                <span>Klik untuk memperbesar</span>
               </div>
             </div>
 
@@ -121,7 +110,6 @@ export default function Projects() {
       {selectedProject && (
         <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            {/* Tombol Silang Close */}
             <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
               <FontAwesomeIcon icon={faTimes} />
             </button>
