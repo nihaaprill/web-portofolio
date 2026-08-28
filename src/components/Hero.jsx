@@ -63,7 +63,6 @@ export default function Hero() {
 
         {/* Kolom Kanan: Foto Profil Transparan Berbingkai Glow */}
         <div className="hero-image-wrapper" data-aos="fade-left">
-          <div className="image-glow-circle"></div>
           <div className="image-frame">
             <img src={profileImg} alt="Niha April Miani" className="hero-profile-img" />
           </div>
