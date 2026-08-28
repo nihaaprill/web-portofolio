@@ -98,7 +98,7 @@
 }
 
 /* ========================================= */
-/*   DESAIN FOTO PROFIL TRANSPARAN (NO BG)   */
+/*   DESAIN FOTO PROFIL BULAT SOFT GLOW      */
 /* ========================================= */
 
 .hero-image-wrapper {
@@ -109,47 +109,45 @@
   flex: 0.9;
 }
 
-/* Cahaya Neon / Ambient Glow di Belakang Bingkai Lingkaran */
+/* Cahaya Neon Pudar (Soft Ambient Glow) di Belakang Bulatan */
 .image-glow-circle {
   position: absolute;
-  width: 380px;
-  height: 380px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
   background: radial-gradient(
     circle, 
-    rgba(168, 85, 247, 0.4) 0%, 
-    rgba(56, 189, 248, 0.2) 60%, 
-    transparent 80%
+    rgba(168, 85, 247, 0.5) 0%, 
+    rgba(56, 189, 248, 0.25) 50%, 
+    transparent 75%
   );
-  filter: blur(40px);
+  filter: blur(35px);
   z-index: 0;
   pointer-events: none;
   animation: pulseGlow 4s ease-in-out infinite alternate;
 }
 
-/* Bingkai Lingkaran Modern Gradasi Neon */
+/* Container Bulat (Memotong Foto Jadi Lingkaran + Efek Glow Pudar Tanpa Border Solid) */
 .image-frame {
   position: relative;
   width: 360px;
   height: 360px;
   border-radius: 50%;
-  padding: 6px;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.8), rgba(56, 189, 248, 0.8));
-  box-shadow: 0 0 35px rgba(168, 85, 247, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  overflow: hidden; /* Memastikan foto terpotong bulat sempurna */
+  border: none; /* Garis lingkar solid dihapus total */
+  
+  /* Pendaran cahaya halus tepat di pinggiran bulatan */
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4),
+              0 0 60px rgba(56, 189, 248, 0.2);
   z-index: 1;
 }
 
-/* Style Foto Tanpa Background di Dalam Bingkai */
+/* Foto di Dalam Bulatan */
 .hero-profile-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  background: transparent;
   transition: transform 0.4s ease;
 }
 
