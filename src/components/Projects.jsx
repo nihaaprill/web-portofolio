@@ -29,7 +29,7 @@ export default function Projects() {
       category: "Data Engineering",
       description: "Perancangan arsitektur Data Warehouse Star Schema (1 Tabel Fakta & 8 Dimensi) serta alur ETL bertingkat untuk sistem analisis operasional dan finansial aplikasi transportasi Dealan.",
       image: dealanImg,
-      techStack: ["SQL", "Star Schema", "ETL", "OLAP", "Data Warehouse"],
+      techStack: ["SQL", "Star Schema", "ETL", "Data Warehouse"],
       githubUrl: "https://github.com/nihaaprill/Dealan.git",
       demoUrl: "https://dealan-app.vercel.app/"
     },
