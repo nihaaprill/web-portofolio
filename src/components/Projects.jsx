@@ -75,7 +75,6 @@ export default function Projects() {
             <div className="card-image">
               <img src={project.image} alt={project.title} />
               <div className="card-overlay">
-                <span>Klik untuk memperbesar</span>
               </div>
             </div>
 
