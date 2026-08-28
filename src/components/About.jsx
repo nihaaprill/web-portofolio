@@ -24,7 +24,7 @@ export default function About() {
             Halo! Saya <strong>Niha April Miani</strong>, mahasiswa S1 Ilmu Komputer di Universitas Pendidikan Indonesia yang memiliki ketertarikan mendalam pada Software Engineering, Data Engineering, dan Business Information Systems.
           </p>
           <p>
-            Berawal dari eksplorasi pengembangan aplikasi web, saya terus berkembang mempelajari bagaimana arsitektur data dirancang, dikelola, hingga diintegrasikan ke dalam ekosistem digital skala besar seperti <em>Supply Chain Management Platform</em>.
+            Berawal dari eksplorasi pengembangan aplikasi web, saya terus berkembang mempelajari bagaimana arsitektur data dirancang, dikelola, hingga diintegrasikan ke dalam ekosistem digital skala besar.
           </p>
           <p>
             Saya terbiasa bekerja secara kolaboratif melalui proyek akademik maupun pengalaman kepemimpinan organisasi, serta selalu beradaptasi cepat dengan teknologi baru.
