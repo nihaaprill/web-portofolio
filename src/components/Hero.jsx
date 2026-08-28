@@ -46,9 +46,18 @@ export default function Hero() {
           <p className="description">
             Mahasiswa Ilmu Komputer Universitas Pendidikan Indonesia dengan fokus pada pengembangan teknologi dan sistem informasi.
           </p>
+          
+          {/* DI SINI LETAK PERUBAHANNYA */}
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary">View Projects</a>
             <a href="#contact" className="btn btn-secondary">Contact Me</a>
+            <a 
+              href="/CV_Niha_Aprilmiani.pdf" 
+              download="CV_Niha_Aprilmiani.pdf" 
+              className="btn btn-secondary"
+            >
+              Download CV
+            </a>
           </div>
         </div>
 

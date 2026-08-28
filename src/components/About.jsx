@@ -50,7 +50,7 @@ export default function About() {
             <div className="stat-card">
               <FontAwesomeIcon icon={faChartLine} className="stat-icon" />
               <h4>Analytics</h4>
-              <p>Machine Learning R</p>
+              <p>Machine Learning</p>
             </div>
           </div>
         </div>
