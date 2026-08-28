@@ -31,7 +31,7 @@ function App() {
       <Projects />
       <Contact />
       <footer style={{ textAlign: 'center', padding: '20px', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-        <p>&copy; {new Date().getFullYear()} Nama Kamu. Cosmic Portfolio.</p>
+        <p>&copy; {new Date().getFullYear()} Apr. Created With Love .</p>
       </footer>
     </div>
   );

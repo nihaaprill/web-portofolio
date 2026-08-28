@@ -4,7 +4,7 @@ import './Navbar.css';
 export default function Navbar() {
   return (
     <header className="navbar">
-      <div className="logo">&lt;Niha April/&gt;</div>
+      <div className="logo">&lt;Apr/&gt;</div>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>

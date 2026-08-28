@@ -95,7 +95,7 @@ export default function Contact() {
                 id="message"
                 rows="5"
                 required
-                placeholder="Tuliskan pesan atau penawaran kerja sama..."
+                placeholder="Tuliskan pesan"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               ></textarea>
