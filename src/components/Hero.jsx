@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
 
-// 1. Impor foto dari folder assets
+// 1. Impor foto dari folder assets (sesuaikan ekstensi file jika .png)
 import profileImg from '../assets/profile.jpg'; 
 
 export default function Hero() {
@@ -47,7 +47,7 @@ export default function Hero() {
             Mahasiswa Ilmu Komputer Universitas Pendidikan Indonesia dengan fokus pada pengembangan teknologi dan sistem informasi.
           </p>
           
-          {/* DI SINI LETAK PERUBAHANNYA */}
+          {/* Tombol View Projects, Contact Me, & Download CV */}
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary">View Projects</a>
             <a href="#contact" className="btn btn-secondary">Contact Me</a>
@@ -61,10 +61,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Kolom Kanan: Foto Profil Berbingkai Glow */}
+        {/* Kolom Kanan: Foto Profil Transparan Berbingkai Glow */}
         <div className="hero-image-wrapper" data-aos="fade-left">
-          <div className="image-glow"></div>
-          <img src={profileImg} alt="Foto Profil" className="hero-profile-img" />
+          <div className="image-glow-circle"></div>
+          <div className="image-frame">
+            <img src={profileImg} alt="Niha April Miani" className="hero-profile-img" />
+          </div>
         </div>
       </div>
     </section>
