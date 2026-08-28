@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Projects.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 // Import semua foto langsung dari folder src/assets/
 import meongImg from '../assets/meong.jpg';
@@ -12,6 +12,9 @@ import kebabImg from '../assets/kebab.jpg';
 import mlImg from '../assets/ml.jpg';
 
 export default function Projects() {
+  // State untuk menyimpan data proyek yang sedang diklik/diperbesar
+  const [selectedProject, setSelectedProject] = useState(null);
+
   const projectsData = [
     {
       id: 1,
@@ -71,6 +74,7 @@ export default function Projects() {
         <span>//</span> Featured Projects
       </h2>
       
+      {/* Grid Kartu Proyek */}
       <div className="projects-grid">
         {projectsData.map((project) => (
           <div 
@@ -78,10 +82,15 @@ export default function Projects() {
             className="project-card"
             data-aos="zoom-in-up"
             data-aos-delay={(project.id % 3) * 100}
+            onClick={() => setSelectedProject(project)} // KLIK KARTU UNTUK MEMBUKA MODAL
           >
             <div className="card-image">
               <img src={project.image} alt={project.title} />
+              <div className="card-overlay">
+                <span>Klik untuk memperbesar</span>
+              </div>
             </div>
+
             <div className="card-content">
               <span className="tech-tag">{project.category}</span>
               <h3>{project.title}</h3>
@@ -93,7 +102,7 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="card-links">
+              <div className="card-links" onClick={(e) => e.stopPropagation()}>
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-icon">
                   <FontAwesomeIcon icon={faGithub} /> Repository
                 </a>
@@ -108,6 +117,49 @@ export default function Projects() {
           </div>
         ))}
       </div>
+
+      {/* POP-UP / MODAL SAAT KARTU DIKLIK */}
+      {selectedProject && (
+        <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            {/* Tombol Silang Close */}
+            <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+
+            <div className="modal-body">
+              <div className="modal-image-container">
+                <img src={selectedProject.image} alt={selectedProject.title} />
+              </div>
+
+              <div className="modal-details">
+                <span className="tech-tag">{selectedProject.category}</span>
+                <h2>{selectedProject.title}</h2>
+                <p className="modal-description">{selectedProject.description}</p>
+
+                <h4>Tech Stack:</h4>
+                <div className="tech-stack modal-tech">
+                  {selectedProject.techStack.map((tech, index) => (
+                    <span key={index}>{tech}</span>
+                  ))}
+                </div>
+
+                <div className="card-links modal-links">
+                  <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-icon">
+                    <FontAwesomeIcon icon={faGithub} /> Repository
+                  </a>
+                  
+                  {selectedProject.demoUrl && (
+                    <a href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer" className="btn-icon outline">
+                      <FontAwesomeIcon icon={faExternalLinkAlt} /> Live Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

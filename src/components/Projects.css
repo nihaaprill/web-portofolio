@@ -118,3 +118,149 @@
     font-size: 2.2rem !important;
   }
 }
+
+/* ========================================= */
+/*       FITUR POP-UP / MODAL PROYEK         */
+/* ========================================= */
+
+/* Kursor Tangan saat Kartu Disorot */
+.project-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+.card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Teks Overlay saat Hover Foto */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 15, 25, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: var(--accent-cyan, #06b6d4);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.card-image:hover .card-overlay {
+  opacity: 1;
+}
+
+/* Background Layar Gelap saat Modal Terbuka */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 8, 15, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Kotak Modal Pop-up Besar */
+.modal-content {
+  position: relative;
+  background: #0d1322;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 16px;
+  max-width: 750px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  padding: 28px;
+  animation: scaleUp 0.3s ease;
+}
+
+/* Tombol Silang (X) */
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.8);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-image-container img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-details h2 {
+  font-size: 1.8rem;
+  margin: 10px 0 12px;
+  color: #fff;
+}
+
+.modal-description {
+  color: var(--text-secondary, #94a3b8);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.modal-details h4 {
+  color: var(--accent-cyan, #06b6d4);
+  margin-bottom: 10px;
+}
+
+.modal-tech {
+  margin-bottom: 20px;
+}
+
+.modal-links {
+  margin-top: 15px;
+}
+
+/* Animasi Muncul Smooth */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
