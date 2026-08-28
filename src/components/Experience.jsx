@@ -5,16 +5,24 @@ export default function Experience() {
   const experiences = [
     {
       id: 1,
+      role: "IT Intern / Divisi Teknologi Informasi",
+      company: "PT Telkom Indonesia",
+      period: "2026 - Sekarang",
+      description: "Mempelajari arsitektur sistem dan standar operasional Divisi IT Telkom Indonesia, serta bersiap berkontribusi aktif dalam pengembangan proyek internal.",
+      skills: ["Software Development", "IT Exploration", "Problem Solving", "Teamwork"]
+    },
+    {
+      id: 2,
       role: "Ketua Biro Sosial dan Politik",
-      company: "Himpunan Mahasiswa Ilmu Komputer - UPI",
+      company: "Keluarga Mahasiswa Ilmu Komputer - UPI",
       period: "2026 - Sekarang",
       description: "Memimpin pelaksanaan program kerja di bidang sosial dan kebijakan kemahasiswaan serta mengoordinasikan anggota biro dalam perencanaan kegiatan.",
       skills: ["Leadership", "Management", "Communication", "Teamwork"]
     },
     {
-      id: 2,
+      id: 3,
       role: "Sekretaris Divisi Advokasi, Sosial, dan Politik",
-      company: "Himpunan Mahasiswa Ilmu Komputer - UPI",
+      company: "Keluarga Mahasiswa Ilmu Komputer - UPI",
       period: "2025",
       description: "Mengelola administrasi, dokumentasi, penyusunan proposal, serta laporan kegiatan dan berkoordinasi dengan pihak fakultas.",
       skills: ["Administration", "Documentation", "Adaptability", "Coordination"]
