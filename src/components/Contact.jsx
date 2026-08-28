@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import './Contact.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faMapMarkerAlt, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faGithub, faWhatsapp, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const waMessage = `Halo Niha, saya ${formData.name} (${formData.email}).%0A%0APesan:%0A${formData.message}`;
-    window.open(`https://wa.me/62895421212109?text=${waMessage}`, '_blank');
+    // Mengarahkan pengiriman pesan langsung via Email Client (Gmail/Outlook)
+    const subject = encodeURIComponent(`Portofolio Inquiry dari ${formData.name}`);
+    const body = encodeURIComponent(`Nama: ${formData.name}\nEmail: ${formData.email}\n\nPesan:\n${formData.message}`);
+    
+    window.location.href = `mailto:nihaaapril@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -37,16 +40,6 @@ export default function Contact() {
             </div>
 
             <div className="info-item">
-              <FontAwesomeIcon icon={faWhatsapp} className="info-icon" />
-              <div>
-                <h4>WhatsApp</h4>
-                <a href="https://wa.me/62895421212109" target="_blank" rel="noopener noreferrer">
-                  +62 895-4212-12109
-                </a>
-              </div>
-            </div>
-
-            <div className="info-item">
               <FontAwesomeIcon icon={faMapMarkerAlt} className="info-icon" />
               <div>
                 <h4>Location</h4>
@@ -69,7 +62,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Kolom Kanan: Form Kirim Pesan */}
+        {/* Kolom Kanan: Form Kirim Pesan via Email */}
         <div className="contact-form-wrapper" data-aos="fade-left" data-aos-delay="200">
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
@@ -102,14 +95,14 @@ export default function Contact() {
                 id="message"
                 rows="5"
                 required
-                placeholder=""
+                placeholder="Tuliskan pesan atau penawaran kerja sama..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               ></textarea>
             </div>
 
             <button type="submit" className="btn btn-primary submit-btn">
-              <FontAwesomeIcon icon={faPaperPlane} /> Send Message via WhatsApp
+              <FontAwesomeIcon icon={faPaperPlane} /> Send Message via Email
             </button>
           </form>
         </div>
